@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miam Miam Food — Connexion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat+Brush&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .login-bg {
+    background: radial-gradient(ellipse at top right, var(--burgundy-light) 0%, var(--burgundy) 40%, var(--burgundy-deep) 100%);
+  }
+</style>
+</head>
+<body class="min-h-screen flex">
+
+<!-- ============ LEFT — BRANDING ============ -->
+<div class="hidden lg:flex login-bg w-1/2 flex-col justify-between p-12 text-cream relative overflow-hidden">
+  <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full opacity-15 float-anim" style="background: radial-gradient(circle, var(--gold) 0%, transparent 70%);"></div>
+  <div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full opacity-10 float-anim" style="background: radial-gradient(circle, var(--cream) 0%, transparent 70%); animation-delay: 1s;"></div>
+
+  <div class="relative z-10">
+    <div class="flex items-center gap-3 mb-16">
+      <span class="logo-mark"><svg width="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11 2v8.5h2V2h-2zM8 2v9c0 1.1.9 2 2 2v9h2v-9c1.1 0 2-.9 2-2V2h-2v7H10V2H8zm9 0c-1.66 0-3 1.34-3 3v7h2v9h2V2z"/></svg></span>
+      <span class="font-display text-xl">MIAM MIAM FOOD</span>
+    </div>
+
+    <h1 class="font-display text-5xl leading-none mb-4">
+      Gérez votre<br>
+      <span class="font-brush text-gold inline-block -rotate-2 text-4xl">restaurant</span><br>
+      en un clic.
+    </h1>
+    <p class="text-cream/70 text-lg max-w-md">
+      Commandes, menu, statistiques, employés — tout au même endroit.
+    </p>
+  </div>
+
+  <div class="relative z-10 flex items-center gap-4 text-sm text-cream/50">
+    <span>© 2026 Miam Miam Food</span>
+    <span>·</span>
+    <a href="index.html" class="hover:text-gold transition">← Retour au site</a>
+  </div>
+</div>
+
+<!-- ============ RIGHT — LOGIN FORM ============ -->
+<div class="flex-1 flex items-center justify-center p-6 bg-cream">
+  <div class="w-full max-w-md">
+    <!-- Mobile logo -->
+    <div class="lg:hidden flex items-center gap-3 mb-10">
+      <span class="logo-mark"><svg width="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11 2v8.5h2V2h-2zM8 2v9c0 1.1.9 2 2 2v9h2v-9c1.1 0 2-.9 2-2V2h-2v7H10V2H8zm9 0c-1.66 0-3 1.34-3 3v7h2v9h2V2z"/></svg></span>
+      <span class="font-display text-xl text-burgundy">MIAM MIAM FOOD</span>
+    </div>
+
+    <div class="mb-8">
+      <h2 class="font-display text-3xl text-burgundy-deep mb-2">Connexion</h2>
+      <p class="text-muted text-sm">Accédez à votre espace de gestion</p>
+    </div>
+
+    <form id="login-form" class="space-y-4" onsubmit="handleLogin(event)">
+      <div>
+        <label class="text-xs font-bold uppercase tracking-wider text-burgundy">Nom d'utilisateur</label>
+        <input id="login-user" class="input-field mt-1" placeholder="Votre identifiant" autocomplete="username" required>
+      </div>
+      <div>
+        <label class="text-xs font-bold uppercase tracking-wider text-burgundy">Mot de passe</label>
+        <input id="login-pass" type="password" class="input-field mt-1" placeholder="••••••" autocomplete="current-password" required>
+      </div>
+      <div id="login-error" class="text-red-600 text-sm font-semibold hidden"></div>
+      <button type="submit" class="btn-primary w-full justify-center text-base py-3">
+        Se connecter →
+      </button>
+    </form>
+
+    <!-- Demo hints -->
+    <div class="mt-8 p-4 bg-white rounded-xl border border-border">
+      <div class="text-xs font-bold uppercase tracking-wider text-muted mb-3">Comptes de démo</div>
+      <div class="space-y-2">
+        <button onclick="fillDemo('niang', '12345')" class="w-full flex items-center gap-3 p-3 rounded-lg hover:bg-cream transition text-left">
+          <div class="w-10 h-10 rounded-full bg-burgundy text-cream flex items-center justify-center font-bold">N</div>
+          <div class="flex-1">
+            <div class="font-semibold text-burgundy-deep text-sm">M. Niang — Propriétaire</div>
+            <div class="text-xs text-muted">Accès complet (analytics, settings, employés)</div>
+          </div>
+          <span class="text-xs text-gold font-bold">→</span>
+        </button>
+        <button onclick="fillDemo('employee1', '12345')" class="w-full flex items-center gap-3 p-3 rounded-lg hover:bg-cream transition text-left">
+          <div class="w-10 h-10 rounded-full bg-gold text-burgundy-deep flex items-center justify-center font-bold">M</div>
+          <div class="flex-1">
+            <div class="font-semibold text-burgundy-deep text-sm">Mamadou Sy — Employé</div>
+            <div class="text-xs text-muted">Accès limité (commandes, menu lecture)</div>
+          </div>
+          <span class="text-xs text-gold font-bold">→</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-6 text-center">
+      <a href="index.html" class="text-xs text-muted hover:text-burgundy transition">← Retour au site public</a>
+    </div>
+  </div>
+</div>
+
+<script src="assets/data.js"></script>
+<script src="assets/auth.js"></script>
+<script>
+  // Auto-redirect if already logged in
+  if (window.MMAuth.getSession()) {
+    window.location.href = 'dashboard.html';
+  }
+
+  function fillDemo(user, pass) {
+    document.getElementById('login-user').value = user;
+    document.getElementById('login-pass').value = pass;
+    document.getElementById('login-error').classList.add('hidden');
+  }
+
+  function handleLogin(e) {
+    e.preventDefault();
+    const user = document.getElementById('login-user').value.trim();
+    const pass = document.getElementById('login-pass').value;
+    const result = window.MMAuth.login(user, pass);
+    if (result.success) {
+      window.location.href = 'dashboard.html';
+    } else {
+      const err = document.getElementById('login-error');
+      err.textContent = result.error;
+      err.classList.remove('hidden');
+    }
+  }
+</script>
+</body>
+</html>

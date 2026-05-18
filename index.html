@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miam Miam Food — Fast Food à Dakar | Burgers, Tacos, Chawarma</title>
+<meta name="description" content="Burgers, French Tacos, Chawarma, Pita. Commande en ligne, livraison rapide à Dakar. Note 4,9★ Google.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat+Brush&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="bg-cream">
+
+<!-- ============ NAVBAR ============ -->
+<nav class="fixed top-0 left-0 right-0 z-30 backdrop-blur-md bg-cream/90 border-b-2 border-burgundy">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-2">
+      <span class="logo-mark">
+        <svg width="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11 2v8.5h2V2h-2zM8 2v9c0 1.1.9 2 2 2v9h2v-9c1.1 0 2-.9 2-2V2h-2v7H10V2H8zm9 0c-1.66 0-3 1.34-3 3v7h2v9h2V2z"/></svg>
+      </span>
+      <span class="font-display text-xl text-burgundy">MIAM MIAM FOOD</span>
+    </a>
+    <div class="hidden md:flex items-center gap-6">
+      <a href="#menu" class="text-burgundy font-semibold text-sm hover:text-gold">Menu</a>
+      <a href="#about" class="text-burgundy font-semibold text-sm hover:text-gold">L'histoire</a>
+      <a href="#contact" class="text-burgundy font-semibold text-sm hover:text-gold">Contact</a>
+      <button onclick="openCart()" class="btn-primary text-sm relative">
+        🛒 Panier
+        <span id="cart-count" class="absolute -top-2 -right-2 bg-gold text-burgundy-deep text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center" style="display:none;">0</span>
+      </button>
+    </div>
+    <button onclick="openCart()" class="md:hidden btn-primary text-sm relative">
+      🛒
+      <span id="cart-count-mobile" class="absolute -top-2 -right-2 bg-gold text-burgundy-deep text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center" style="display:none;">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header id="top" class="relative pt-28 pb-16 px-4 overflow-hidden" style="background: radial-gradient(ellipse at top right, var(--burgundy-light) 0%, var(--burgundy) 40%, var(--burgundy-deep) 100%);">
+  <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full opacity-15 float-anim" style="background: radial-gradient(circle, var(--gold) 0%, transparent 70%);"></div>
+  <div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full opacity-10 float-anim" style="background: radial-gradient(circle, var(--cream) 0%, transparent 70%); animation-delay: 1s;"></div>
+
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center relative z-10">
+    <div>
+      <div class="inline-flex items-center gap-2 bg-gold/20 border border-gold text-gold px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6">
+        ⭐ Fast Food · Dakar
+      </div>
+      <h1 class="font-display text-cream text-5xl sm:text-6xl md:text-7xl leading-none mb-6">
+        Le goût qui<br>
+        <span class="font-brush text-gold inline-block -rotate-3 text-5xl sm:text-6xl">fait crier</span><br>
+        miam miam.
+      </h1>
+      <p class="text-cream/85 text-lg mb-8 max-w-md">
+        Burgers gourmands, French Tacos généreux, Chawarmas savoureux. Préparé frais, commandé en un clic.
+      </p>
+      <div class="flex flex-wrap gap-3 mb-8">
+        <a href="#menu" class="btn-gold text-sm">
+          📋 Voir le menu
+        </a>
+        <a href="https://wa.me/221775542160" target="_blank" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#128C7E] text-white font-bold text-sm transition shadow-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+      <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur border border-cream/20 px-4 py-2.5 rounded-xl">
+        <span class="text-gold text-xl">★★★★★</span>
+        <div class="text-cream text-sm">
+          <span class="font-display text-gold text-2xl">4,9</span> sur Google · Note moyenne
+        </div>
+      </div>
+    </div>
+
+    <div class="relative h-80 md:h-96 flex items-center justify-center">
+      <span class="absolute top-8 -left-2 bg-gold text-burgundy-deep px-3 py-2 rounded-lg font-brush text-lg -rotate-6 shadow-xl float-anim z-10">100% Frais !</span>
+      <div class="relative w-72 h-72 rounded-full flex flex-col items-center justify-center shadow-2xl" style="background: var(--burgundy-deep); border: 8px solid var(--cream-warm); box-shadow: 0 20px 60px rgba(0,0,0,0.4), inset 0 0 0 4px var(--burgundy-deep), inset 0 0 0 14px var(--cream-warm);">
+        <svg class="w-20 text-cream-warm mb-3" viewBox="0 0 24 24" fill="currentColor"><path d="M11 2v8.5h2V2h-2zM8 2v9c0 1.1.9 2 2 2v9h2v-9c1.1 0 2-.9 2-2V2h-2v7H10V2H8zm9 0c-1.66 0-3 1.34-3 3v7h2v9h2V2z"/></svg>
+        <div class="font-display text-cream-warm text-4xl text-center leading-none">MIAM<br>MIAM</div>
+      </div>
+      <span class="absolute bottom-8 -right-2 bg-gold text-burgundy-deep px-3 py-2 rounded-lg font-brush text-lg rotate-6 shadow-xl float-anim z-10" style="animation-delay: 1.5s;">Livraison rapide</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MARQUEE ============ -->
+<div class="bg-burgundy-deep border-y-4 border-gold py-3 overflow-hidden">
+  <div class="marquee-track text-cream font-display text-lg">
+    <span class="flex items-center gap-12">BURGERS <span class="text-gold">●</span> FRENCH TACOS <span class="text-gold">●</span> CHAWARMAS <span class="text-gold">●</span> PITA <span class="text-gold">●</span> 100% FRAIS <span class="text-gold">●</span> COMMANDE EN LIGNE <span class="text-gold">●</span></span>
+    <span class="flex items-center gap-12">BURGERS <span class="text-gold">●</span> FRENCH TACOS <span class="text-gold">●</span> CHAWARMAS <span class="text-gold">●</span> PITA <span class="text-gold">●</span> 100% FRAIS <span class="text-gold">●</span> COMMANDE EN LIGNE <span class="text-gold">●</span></span>
+  </div>
+</div>
+
+<!-- ============ FEATURED ============ -->
+<section class="py-16 px-4">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="font-brush text-gold text-2xl -rotate-1 inline-block">🔥 Les coups de cœur</span>
+      <h2 class="font-display text-burgundy-deep text-4xl sm:text-5xl mt-2">Nos best-sellers</h2>
+    </div>
+    <div id="featured-grid" class="grid sm:grid-cols-2 md:grid-cols-4 gap-5">
+      <!-- populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============ MENU ============ -->
+<section id="menu" class="py-16 px-4" style="background: linear-gradient(180deg, var(--cream) 0%, var(--cream-warm) 100%);">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-10">
+      <span class="font-brush text-gold text-2xl -rotate-1 inline-block">Notre carte</span>
+      <h2 class="font-display text-burgundy-deep text-4xl sm:text-5xl mt-2">De quoi vous régaler</h2>
+      <p class="text-burgundy-light mt-3 max-w-lg mx-auto">Cliquez sur "+" pour ajouter au panier. Prix en FCFA.</p>
+    </div>
+
+    <!-- Category tabs -->
+    <div id="cat-tabs" class="flex gap-2 flex-wrap justify-center mb-8"></div>
+
+    <!-- Menu grid -->
+    <div id="menu-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="py-16 px-4 bg-white">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <span class="font-brush text-gold text-2xl -rotate-1 inline-block">Qui sommes-nous</span>
+      <h2 class="font-display text-burgundy-deep text-4xl sm:text-5xl mt-2 mb-5">Le fast food préféré des Dakarois.</h2>
+      <p class="text-burgundy-light mb-4">Chez Miam Miam Food, on ne fait pas dans la demi-mesure. Burgers généreux, French Tacos copieux, chawarmas marinés à la perfection : chaque plat est préparé avec des produits frais, par une équipe passionnée.</p>
+      <p class="text-burgundy-light mb-6">Notre promesse ? Du goût, de la générosité, et une commande facile. C'est aussi simple que ça.</p>
+      <div class="grid grid-cols-3 gap-3">
+        <div class="bg-burgundy-deep text-cream p-4 rounded-xl text-center -rotate-1">
+          <div class="font-display text-3xl">4,9★</div>
+          <div class="text-xs uppercase tracking-wider opacity-85">Note Google</div>
+        </div>
+        <div class="bg-gold text-burgundy-deep p-4 rounded-xl text-center rotate-1">
+          <div class="font-display text-3xl">24+</div>
+          <div class="text-xs uppercase tracking-wider opacity-85">Plats au menu</div>
+        </div>
+        <div class="bg-burgundy-deep text-cream p-4 rounded-xl text-center -rotate-1">
+          <div class="font-display text-3xl">100%</div>
+          <div class="text-xs uppercase tracking-wider opacity-85">Fait maison</div>
+        </div>
+      </div>
+    </div>
+    <div class="aspect-square rounded-3xl bg-gradient-to-br from-burgundy to-burgundy-light flex items-center justify-center shadow-2xl relative overflow-hidden">
+      <div class="text-9xl">🍔</div>
+      <div class="absolute bottom-4 left-4 right-4 bg-cream/95 backdrop-blur p-3 rounded-xl text-center text-2xl">🌮 🥙 🍟 🍔</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DELIVERY / PICKUP ============ -->
+<section class="py-16 px-4 bg-cream">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-10">
+      <span class="font-brush text-gold text-2xl -rotate-1 inline-block">Comment ça marche ?</span>
+      <h2 class="font-display text-burgundy-deep text-4xl mt-2">3 façons de profiter</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="card-premium p-6 text-center">
+        <div class="text-5xl mb-3">🛵</div>
+        <h3 class="font-display text-2xl text-burgundy-deep mb-2">Livraison</h3>
+        <p class="text-burgundy-light text-sm">Commandez en ligne, on livre chez vous sur tout Dakar.</p>
+        <div class="text-xs text-muted mt-3">Frais 1 000 — 1 500 Fr selon la zone</div>
+      </div>
+      <div class="card-premium p-6 text-center">
+        <div class="text-5xl mb-3">🏪</div>
+        <h3 class="font-display text-2xl text-burgundy-deep mb-2">Sur place</h3>
+        <p class="text-burgundy-light text-sm">Venez profiter d'une ambiance conviviale, on s'occupe du reste.</p>
+        <div class="text-xs text-muted mt-3">Ouvert 11h — 23h</div>
+      </div>
+      <div class="card-premium p-6 text-center">
+        <div class="text-5xl mb-3">💬</div>
+        <h3 class="font-display text-2xl text-burgundy-deep mb-2">WhatsApp</h3>
+        <p class="text-burgundy-light text-sm">Préférez parler ? Un simple message suffit, on s'occupe de tout.</p>
+        <a href="https://wa.me/221775542160" target="_blank" class="text-xs text-[#25D366] font-bold mt-3 inline-block">+221 77 554 21 60</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="py-16 px-4 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-10">
+      <span class="font-brush text-gold text-2xl -rotate-1 inline-block">Ils en parlent</span>
+      <h2 class="font-display text-burgundy-deep text-4xl mt-2">Nos clients adorent</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-5">
+      <div class="card-premium p-6">
+        <div class="text-gold text-lg mb-2">★★★★★</div>
+        <p class="text-burgundy-light text-sm mb-4">"Le Miammiam Burger est juste incroyable. Service rapide et livraison ponctuelle. Mon adresse préférée à Dakar !"</p>
+        <div class="flex items-center gap-2">
+          <div class="w-9 h-9 rounded-full bg-burgundy text-cream flex items-center justify-center font-bold text-sm">A</div>
+          <div>
+            <div class="font-semibold text-burgundy-deep text-sm">Aminata D.</div>
+            <div class="text-xs text-muted">Cliente régulière</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-premium p-6">
+        <div class="text-gold text-lg mb-2">★★★★★</div>
+        <p class="text-burgundy-light text-sm mb-4">"Tacos énormes, sauces parfaites, prix correct. J'commande au moins 2 fois par semaine, jamais déçu."</p>
+        <div class="flex items-center gap-2">
+          <div class="w-9 h-9 rounded-full bg-gold text-burgundy-deep flex items-center justify-center font-bold text-sm">C</div>
+          <div>
+            <div class="font-semibold text-burgundy-deep text-sm">Cheikh S.</div>
+            <div class="text-xs text-muted">Avis Google</div>
+          </div>
+        </div>
+      </div>
+      <div class="card-premium p-6">
+        <div class="text-gold text-lg mb-2">★★★★★</div>
+        <p class="text-burgundy-light text-sm mb-4">"Le Philly Cheese vaut le détour. Vraiment bien préparé, viande tendre, généreux. Bravo !"</p>
+        <div class="flex items-center gap-2">
+          <div class="w-9 h-9 rounded-full bg-burgundy text-cream flex items-center justify-center font-bold text-sm">F</div>
+          <div>
+            <div class="font-semibold text-burgundy-deep text-sm">Fatou N.</div>
+            <div class="text-xs text-muted">Avis Google</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="py-16 px-4" style="background: linear-gradient(135deg, var(--burgundy) 0%, var(--burgundy-deep) 100%);">
+  <div class="max-w-4xl mx-auto text-center">
+    <span class="font-brush text-gold text-2xl -rotate-1 inline-block">Une faim soudaine ?</span>
+    <h2 class="font-display text-cream text-4xl sm:text-5xl mt-2 mb-4">Commandez maintenant</h2>
+    <p class="text-cream/75 mb-8">Notre équipe attend votre commande. Réponse rapide, préparation soignée.</p>
+    <div class="flex flex-wrap gap-3 justify-center">
+      <a href="#menu" class="btn-gold">📋 Voir le menu</a>
+      <a href="https://wa.me/221775542160" target="_blank" class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#128C7E] text-white font-bold transition shadow-lg">
+        💬 WhatsApp
+      </a>
+      <a href="tel:+221775542160" class="btn-ghost">📞 +221 77 554 21 60</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-burgundy-deep text-cream/70 py-8 px-4 border-t-4 border-gold">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-4 text-sm">
+      <div>© 2026 Miam Miam Food · Dakar, Sénégal · Tous droits réservés</div>
+      <div class="flex items-center gap-3">
+        <a href="https://instagram.com/miammiamfood" target="_blank" class="hover:text-gold">Instagram</a>
+        <span class="text-cream/30">·</span>
+        <a href="https://snapchat.com/add/miammiamfood" target="_blank" class="hover:text-gold">Snapchat</a>
+        <span class="text-cream/30">·</span>
+        <a href="https://wa.me/221775542160" target="_blank" class="hover:text-gold">WhatsApp</a>
+      </div>
+    </div>
+    <div class="mt-6 pt-4 border-t border-cream/10 text-center">
+      <a href="login.html" class="text-xs text-cream/40 hover:text-gold transition">🔐 Admin Login</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WA ============ -->
+<a href="https://wa.me/221775542160" target="_blank" class="float-wa">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24z"/></svg>
+</a>
+
+<!-- ============ CART DRAWER ============ -->
+<div id="cart-drawer" class="fixed inset-0 z-50 hidden">
+  <div class="absolute inset-0 bg-burgundy-deep/60" onclick="closeCart()"></div>
+  <div class="absolute top-0 right-0 bottom-0 w-full sm:w-96 bg-cream shadow-2xl flex flex-col">
+    <div class="p-5 border-b border-burgundy/20 flex items-center justify-between bg-burgundy-deep text-cream">
+      <div>
+        <h3 class="font-display text-2xl">Votre panier</h3>
+        <p class="text-cream/60 text-xs" id="cart-summary-text">0 articles</p>
+      </div>
+      <button onclick="closeCart()" class="w-9 h-9 rounded-full bg-cream/10 hover:bg-cream/20 flex items-center justify-center">✕</button>
+    </div>
+    <div id="cart-items" class="flex-1 overflow-y-auto p-4 space-y-3">
+      <div class="text-center text-muted py-12">
+        <div class="text-5xl mb-3">🛒</div>
+        <p>Votre panier est vide</p>
+      </div>
+    </div>
+    <div id="cart-footer" class="p-5 border-t border-burgundy/20 bg-white" style="display:none;">
+      <div class="flex justify-between mb-2 text-sm">
+        <span class="text-muted">Sous-total</span>
+        <span class="font-semibold" id="cart-subtotal">0 Fr</span>
+      </div>
+      <div class="flex justify-between mb-4 font-display text-2xl text-burgundy-deep">
+        <span>Total</span>
+        <span id="cart-total">0 Fr</span>
+      </div>
+      <button onclick="openCheckout()" class="btn-primary w-full justify-center text-base">
+        ➜ Passer commande
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CHECKOUT MODAL ============ -->
+<div id="checkout-modal" class="modal-backdrop">
+  <div class="modal-content p-6">
+    <div class="flex items-center justify-between mb-5">
+      <h3 class="font-display text-2xl text-burgundy-deep">Finaliser ma commande</h3>
+      <button onclick="closeCheckout()" class="w-8 h-8 rounded-full bg-cream hover:bg-cream-warm flex items-center justify-center">✕</button>
+    </div>
+
+    <div id="checkout-step-1">
+      <p class="text-sm text-muted mb-4">Étape 1 / 2 — Vos informations</p>
+      <div class="space-y-3">
+        <div>
+          <label class="text-xs font-bold uppercase tracking-wider text-burgundy">Nom</label>
+          <input id="co-name" class="input-field mt-1" placeholder="Votre nom">
+        </div>
+        <div>
+          <label class="text-xs font-bold uppercase tracking-wider text-burgundy">Téléphone</label>
+          <input id="co-phone" type="tel" class="input-field mt-1" placeholder="+221 77 XXX XX XX">
+        </div>
+        <div>
+          <label class="text-xs font-bold uppercase tracking-wider text-burgundy">Adresse de livraison</label>
+          <input id="co-address" class="input-field mt-1" placeholder="Quartier, rue, repère...">
+        </div>
+        <div>
+          <label class="text-xs font-bold uppercase tracking-wider text-burgundy">Zone</label>
+          <select id="co-zone" class="input-field mt-1">
+            <option value="1000">Plateau — 1 000 Fr</option>
+            <option value="1000">Sacré-Cœur — 1 000 Fr</option>
+            <option value="1000">Mermoz — 1 000 Fr</option>
+            <option value="1500">Almadies — 1 500 Fr</option>
+            <option value="1500">Ngor — 1 500 Fr</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs font-bold uppercase tracking-wider text-burgundy">Notes (optionnel)</label>
+          <input id="co-notes" class="input-field mt-1" placeholder="Ex: sans oignons, sonner 2 fois...">
+        </div>
+      </div>
+      <button onclick="checkoutStep2()" class="btn-primary w-full justify-center mt-5">Continuer ➜</button>
+    </div>
+
+    <div id="checkout-step-2" style="display:none;">
+      <p class="text-sm text-muted mb-4">Étape 2 / 2 — Paiement</p>
+      <div class="grid grid-cols-3 gap-2 mb-4">
+        <button onclick="selectPay('wave')" class="pay-opt border-2 border-burgundy bg-cream p-3 rounded-xl text-center" data-pay="wave">
+          <div class="w-8 h-8 rounded-lg bg-[#1DC8F9] text-white mx-auto flex items-center justify-center font-bold text-xs">W</div>
+          <div class="text-xs font-bold mt-1">Wave</div>
+        </button>
+        <button onclick="selectPay('orange_money')" class="pay-opt border-2 border-border bg-white p-3 rounded-xl text-center" data-pay="orange_money">
+          <div class="w-8 h-8 rounded-lg bg-[#FF6B00] text-white mx-auto flex items-center justify-center font-bold text-xs">OM</div>
+          <div class="text-xs font-bold mt-1">Orange Money</div>
+        </button>
+        <button onclick="selectPay('cash')" class="pay-opt border-2 border-border bg-white p-3 rounded-xl text-center" data-pay="cash">
+          <div class="w-8 h-8 rounded-lg bg-green-500 text-white mx-auto flex items-center justify-center font-bold text-xs">$</div>
+          <div class="text-xs font-bold mt-1">Cash</div>
+        </button>
+      </div>
+
+      <div id="pay-instructions" class="bg-cream p-4 rounded-xl text-sm mb-4">
+        <div class="font-bold text-burgundy-deep mb-1">💸 Paiement Wave</div>
+        <p class="text-burgundy-light text-xs">Envoyez le total au <strong>+221 77 554 21 60</strong> via Wave. Une fois envoyé, validez votre commande.</p>
+      </div>
+
+      <div class="bg-burgundy-deep text-cream rounded-xl p-4 mb-4">
+        <div class="flex justify-between text-sm mb-1"><span class="opacity-75">Sous-total</span><span id="co-subtotal">0 Fr</span></div>
+        <div class="flex justify-between text-sm mb-2"><span class="opacity-75">Livraison</span><span id="co-delivery">1 000 Fr</span></div>
+        <div class="flex justify-between font-display text-2xl text-gold pt-2 border-t border-cream/20">
+          <span>Total</span><span id="co-total">0 Fr</span>
+        </div>
+      </div>
+
+      <div class="flex gap-2">
+        <button onclick="checkoutStep1()" class="btn-ghost flex-1 justify-center">← Retour</button>
+        <button onclick="confirmOrder()" class="btn-gold flex-1 justify-center">✓ Confirmer</button>
+      </div>
+    </div>
+
+    <div id="checkout-success" style="display:none;" class="text-center py-6">
+      <div class="text-6xl mb-3">🎉</div>
+      <h3 class="font-display text-3xl text-burgundy-deep mb-2">Commande envoyée !</h3>
+      <p class="text-burgundy-light mb-4">Numéro de commande : <strong id="success-order-num" class="font-display text-2xl text-gold"></strong></p>
+      <p class="text-sm text-muted mb-5">Notre équipe a reçu votre commande et la prépare. Nous vous contacterons sur WhatsApp.</p>
+      <button onclick="closeCheckout()" class="btn-primary w-full justify-center">Fermer</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TOAST ============ -->
+<div id="toast" class="toast"></div>
+
+<script src="assets/data.js"></script>
+<script src="assets/landing.js"></script>
+</body>
+</html>
