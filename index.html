@@ -392,5 +392,54 @@
 
 <script src="assets/data.js"></script>
 <script src="assets/landing.js"></script>
+<script>
+  function mmInit() {
+    var d = window.MMData.loadData();
+    var fmt = window.MMFmt.fmtFCFA;
+    var FEAT = ['m11', 'm03', 'm20', 'm22'];
+    var CATS = ['Burgers', 'Classiques', 'Hors-Jeu', 'French Tacos', 'Sandwich Pita'];
+
+    var fg = document.getElementById('featured-grid');
+    if (fg && fg.children.length === 0) {
+      fg.innerHTML = FEAT.map(function(id) {
+        var it = d.menu.find(function(m) { return m.id === id; });
+        if (!it) return '';
+        return '<div class="card-premium p-4 hover:scale-105 transition-transform">' +
+          '<div class="text-6xl text-center mb-3">' + it.image + '</div>' +
+          '<h3 class="font-bold text-burgundy-deep">' + it.name + '</h3>' +
+          '<p class="text-xs text-muted mt-1 line-clamp-2 h-8 overflow-hidden">' + it.desc + '</p>' +
+          '<div class="flex items-center justify-between mt-3">' +
+          '<span class="font-display text-xl text-gold">' + fmt(it.price) + '</span>' +
+          '<button onclick="addToCart(\'' + it.id + '\')" class="w-8 h-8 rounded-full bg-burgundy text-white hover:bg-burgundy-deep transition">+</button>' +
+          '</div></div>';
+      }).join('');
+    }
+
+    var ct = document.getElementById('cat-tabs');
+    if (ct && ct.children.length === 0) {
+      ct.innerHTML = '<button onclick="switchCategory(\'all\')" class="cat-tab px-4 py-2 rounded-full font-bold text-sm bg-burgundy text-cream">Tout</button>' +
+        CATS.map(function(c) {
+          return '<button onclick="switchCategory(\'' + c + '\')" class="cat-tab px-4 py-2 rounded-full font-bold text-sm bg-white text-burgundy border border-border hover:border-burgundy">' + c + '</button>';
+        }).join('');
+    }
+
+    var mg = document.getElementById('menu-grid');
+    if (mg && mg.children.length === 0) {
+      mg.innerHTML = d.menu.filter(function(m) { return m.available; }).map(function(it) {
+        return '<div class="card-premium p-5 flex gap-4">' +
+          '<div class="text-5xl flex-shrink-0 flex items-center">' + it.image + '</div>' +
+          '<div class="flex-1 min-w-0">' +
+          '<div class="flex items-start justify-between gap-2 mb-1">' +
+          '<h3 class="font-bold text-burgundy-deep leading-tight">' + it.name + '</h3>' +
+          '<span class="font-display text-lg text-gold whitespace-nowrap">' + fmt(it.price) + '</span></div>' +
+          '<p class="text-xs text-muted mb-3 line-clamp-2">' + it.desc + '</p>' +
+          '<button onclick="addToCart(\'' + it.id + '\')" class="btn-primary text-xs px-3 py-1.5">+ Ajouter</button>' +
+          '</div></div>';
+      }).join('');
+    }
+  }
+  mmInit();
+  document.addEventListener('DOMContentLoaded', mmInit);
+</script>
 </body>
 </html>
