@@ -3,7 +3,7 @@
 // All data persists in localStorage on first load
 // =====================================================
 
-const STORAGE_KEY = 'mm_data_v2';
+const STORAGE_KEY = 'mm_data_v3';
 
 const DEFAULT_DATA = {
   menu: [
@@ -38,7 +38,85 @@ const DEFAULT_DATA = {
     { id: 'm24', cat: 'Sandwich Pita', name: 'Chicken Boursin', price: 4000, desc: 'Pain pita, blanc de poulet mariné, salade, tomate, oignon, boursin, cheddar, frites', available: true, image: '🥙' },
   ],
 
-  orders: [],
+  orders: [
+    {
+      id: 'ord_148', number: 148, time: '2026-05-19T14:32:00', status: 'pending',
+      customer: 'Aminata Diop', phone: '+221 77 123 45 67', address: 'Sacré-Cœur 3, Villa 123',
+      source: 'web', payment: 'wave', paymentStatus: 'received',
+      items: [{ id: 'm11', name: 'Miammiam Burger', qty: 2, price: 4000 }, { id: 'm20', name: 'Tacos Chawarma', qty: 1, price: 3000 }],
+      subtotal: 11000, deliveryFee: 1000, total: 12000, notes: ''
+    },
+    {
+      id: 'ord_147', number: 147, time: '2026-05-19T14:25:00', status: 'preparing',
+      customer: 'Cheikh Sarr', phone: '+221 78 456 78 90', address: 'Plateau, Av. Pompidou',
+      source: 'phone', payment: 'cash', paymentStatus: 'pending',
+      items: [{ id: 'm12', name: 'Burger Royal', qty: 1, price: 2500 }, { id: 'm15', name: 'Tacos Poulet', qty: 1, price: 3000 }],
+      subtotal: 5500, deliveryFee: 1000, total: 6500, notes: 'Sans oignons'
+    },
+    {
+      id: 'ord_146', number: 146, time: '2026-05-19T14:22:00', status: 'delivered',
+      customer: 'Client comptoir', phone: '', address: 'Sur place — Table 4',
+      source: 'walkin', payment: 'cash', paymentStatus: 'received',
+      items: [{ id: 'm10', name: 'Chicken Burger', qty: 1, price: 1500 }],
+      subtotal: 1500, deliveryFee: 0, total: 1500, notes: ''
+    },
+    {
+      id: 'ord_145', number: 145, time: '2026-05-19T14:18:00', status: 'ready',
+      customer: 'Fatou Ndiaye', phone: '+221 76 234 56 78', address: 'Mermoz, Cité Keur Gorgui',
+      source: 'web', payment: 'orange_money', paymentStatus: 'received',
+      items: [{ id: 'm23', name: 'Chicken Crispy', qty: 3, price: 4000 }, { id: 'm07', name: 'Chawarma Delux', qty: 1, price: 3000 }],
+      subtotal: 15000, deliveryFee: 1000, total: 16000, notes: ''
+    },
+    {
+      id: 'ord_144', number: 144, time: '2026-05-19T14:10:00', status: 'preparing',
+      customer: 'Ibrahima Faye', phone: '+221 70 987 65 43', address: 'Sacré-Cœur 2',
+      source: 'phone', payment: 'wave', paymentStatus: 'received',
+      items: [{ id: 'm22', name: "L'Américain", qty: 1, price: 3500 }, { id: 'm19', name: 'Tacos Burger', qty: 1, price: 3000 }],
+      subtotal: 6500, deliveryFee: 1000, total: 7500, notes: ''
+    },
+    {
+      id: 'ord_143', number: 143, time: '2026-05-19T14:02:00', status: 'delivered',
+      customer: 'Astou Mbaye', phone: '', address: 'Sur place — Comptoir',
+      source: 'walkin', payment: 'wave', paymentStatus: 'received',
+      items: [{ id: 'm15', name: 'Tacos Poulet', qty: 2, price: 3000 }, { id: 'm04', name: 'Fataya Complet', qty: 1, price: 1000 }],
+      subtotal: 7000, deliveryFee: 0, total: 7000, notes: ''
+    },
+    {
+      id: 'ord_142', number: 142, time: '2026-05-19T13:55:00', status: 'ready',
+      customer: 'Marième Sow', phone: '+221 77 555 12 34', address: 'Almadies, Ngor',
+      source: 'web', payment: 'orange_money', paymentStatus: 'received',
+      items: [{ id: 'm03', name: 'Chawarma Poulet', qty: 2, price: 2500 }, { id: 'm04', name: 'Fataya Complet', qty: 1, price: 1000 }],
+      subtotal: 6000, deliveryFee: 1500, total: 7500, notes: ''
+    },
+    {
+      id: 'ord_141', number: 141, time: '2026-05-19T13:40:00', status: 'delivered',
+      customer: 'Ousmane Ba', phone: '+221 78 111 22 33', address: 'Plateau',
+      source: 'phone', payment: 'cash', paymentStatus: 'received',
+      items: [{ id: 'm06', name: 'Philly Cheese', qty: 1, price: 3000 }],
+      subtotal: 3000, deliveryFee: 1000, total: 4000, notes: ''
+    },
+    {
+      id: 'ord_140', number: 140, time: '2026-05-19T13:30:00', status: 'delivered',
+      customer: 'Client comptoir', phone: '', address: 'Sur place',
+      source: 'walkin', payment: 'cash', paymentStatus: 'received',
+      items: [{ id: 'm13', name: 'Kebab Burger', qty: 1, price: 3500 }],
+      subtotal: 3500, deliveryFee: 0, total: 3500, notes: ''
+    },
+    {
+      id: 'ord_139', number: 139, time: '2026-05-19T13:25:00', status: 'delivered',
+      customer: 'Khady Diallo', phone: '+221 77 888 99 00', address: 'Sacré-Cœur',
+      source: 'web', payment: 'wave', paymentStatus: 'received',
+      items: [{ id: 'm24', name: 'Chicken Boursin', qty: 1, price: 4000 }],
+      subtotal: 4000, deliveryFee: 1000, total: 5000, notes: ''
+    },
+    {
+      id: 'ord_138', number: 138, time: '2026-05-19T12:50:00', status: 'cancelled',
+      customer: 'Souleymane Ndoye', phone: '+221 77 222 33 44', address: 'Almadies',
+      source: 'web', payment: 'wave', paymentStatus: 'failed',
+      items: [{ id: 'm12', name: 'Burger Royal', qty: 1, price: 2500 }],
+      subtotal: 2500, deliveryFee: 1500, total: 4000, notes: 'Annulé — paiement non reçu'
+    },
+  ],
 
   employees: [
     { id: 'emp1', username: 'employee1', name: 'Mamadou Sy', role: 'Caissier', phone: '+221 77 111 11 11', active: true, joined: '2024-08-15' },
