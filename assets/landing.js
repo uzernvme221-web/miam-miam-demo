@@ -297,10 +297,16 @@ function showToast(msg, type = 'success') {
 }
 
 // =========== INIT ===========
-window.addEventListener('DOMContentLoaded', () => {
+function initLanding() {
   renderFeatured();
   renderCategoryTabs();
   renderMenu();
   updateCartUI();
   selectPay('wave');
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initLanding);
+} else {
+  initLanding();
+}
