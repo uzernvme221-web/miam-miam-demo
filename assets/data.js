@@ -3,7 +3,7 @@
 // All data persists in localStorage on first load
 // =====================================================
 
-const STORAGE_KEY = 'mm_data_v1';
+const STORAGE_KEY = 'mm_data_v2';
 
 const DEFAULT_DATA = {
   menu: [
