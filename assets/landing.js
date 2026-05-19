@@ -2,16 +2,16 @@
 // MIAM MIAM — Landing page logic
 // =====================================================
 
-const data = window.MMData.loadData();
-const { fmtFCFA } = window.MMFmt;
+var data = window.MMData.loadData();
+var fmtFCFA = window.MMFmt.fmtFCFA;
 
 // Cart state
-let cart = JSON.parse(localStorage.getItem('mm_cart_v1') || '[]');
-let currentCategory = 'all';
-let selectedPayment = 'wave';
+var cart = JSON.parse(localStorage.getItem('mm_cart_v1') || '[]');
+var currentCategory = 'all';
+var selectedPayment = 'wave';
 
-const FEATURED_IDS = ['m11', 'm03', 'm20', 'm22']; // Miammiam, Chawarma Poulet, Tacos Chawarma, L'Américain
-const CATEGORIES = ['Burgers', 'Classiques', 'Hors-Jeu', 'French Tacos', 'Sandwich Pita'];
+var FEATURED_IDS = ['m11', 'm03', 'm20', 'm22']; // Miammiam, Chawarma Poulet, Tacos Chawarma, L'Américain
+var CATEGORIES = ['Burgers', 'Classiques', 'Hors-Jeu', 'French Tacos', 'Sandwich Pita'];
 
 // =========== RENDER ===========
 function renderFeatured() {
@@ -286,7 +286,7 @@ function confirmOrder() {
 }
 
 // =========== TOAST ===========
-let toastTimer = null;
+var toastTimer = null;
 function showToast(msg, type = 'success') {
   const t = document.getElementById('toast');
   t.textContent = msg;

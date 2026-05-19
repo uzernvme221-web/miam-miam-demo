@@ -2,10 +2,10 @@
 // MIAM MIAM — Fake Auth (frontend-only demo)
 // =====================================================
 
-const SESSION_KEY = 'mm_session_v1';
-const MANAGER_PIN = '4829';
+var SESSION_KEY = 'mm_session_v1';
+var MANAGER_PIN = '4829';
 
-const CREDENTIALS = {
+var CREDENTIALS = {
   niang: { password: '12345', role: 'owner', name: 'M. Niang', avatar: 'N' },
   employee1: { password: '12345', role: 'employee', name: 'Mamadou Sy', avatar: 'M' },
   employee2: { password: '12345', role: 'employee', name: 'Awa Diouf', avatar: 'A' },

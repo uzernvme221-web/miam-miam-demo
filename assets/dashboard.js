@@ -2,18 +2,25 @@
 // MIAM MIAM — Dashboard Logic (Owner + Employee)
 // =====================================================
 
-const session = window.MMAuth.requireAuth();
+var session = window.MMAuth.requireAuth();
 if (!session) throw new Error('No session');
 
-const { fmtFCFA, fmtTime, fmtDate, STATUS_LABELS, STATUS_COLORS, SOURCE_LABELS, SOURCE_COLORS, PAYMENT_LABELS } = window.MMFmt;
-const isOwner = session.role === 'owner';
+var fmtFCFA = window.MMFmt.fmtFCFA;
+var fmtTime = window.MMFmt.fmtTime;
+var fmtDate = window.MMFmt.fmtDate;
+var STATUS_LABELS = window.MMFmt.STATUS_LABELS;
+var STATUS_COLORS = window.MMFmt.STATUS_COLORS;
+var SOURCE_LABELS = window.MMFmt.SOURCE_LABELS;
+var SOURCE_COLORS = window.MMFmt.SOURCE_COLORS;
+var PAYMENT_LABELS = window.MMFmt.PAYMENT_LABELS;
+var isOwner = session.role === 'owner';
 
 // State
-let activePage = 'dashboard';
-let filters = { period: 'today', status: 'all', source: 'all', search: '' };
-let chartRevenue = null;
-let chartChannels = null;
-let chartPayments = null;
+var activePage = 'dashboard';
+var filters = { period: 'today', status: 'all', source: 'all', search: '' };
+var chartRevenue = null;
+var chartChannels = null;
+var chartPayments = null;
 
 // =============== INIT ===============
 function init() {
@@ -490,7 +497,7 @@ function doDeleteOrder(orderId) {
 }
 
 // =============== NEW ORDER (PHONE / WALK-IN) ===============
-let newOrderState = {
+var newOrderState = {
   channel: 'phone',
   customer: '',
   phone: '',
@@ -1170,7 +1177,7 @@ document.getElementById('modal').addEventListener('click', e => {
 });
 
 // =============== TOAST ===============
-let toastTimer = null;
+var toastTimer = null;
 function showToast(msg, type = 'success') {
   const t = document.getElementById('toast');
   t.textContent = msg;

@@ -3,9 +3,9 @@
 // All data persists in localStorage on first load
 // =====================================================
 
-const STORAGE_KEY = 'mm_data_v3';
+var STORAGE_KEY = 'mm_data_v3';
 
-const DEFAULT_DATA = {
+var DEFAULT_DATA = {
   menu: [
     // Classiques
     { id: 'm01', cat: 'Classiques', name: 'Burger Local', price: 2000, desc: 'Pain burger, steak haché de boeuf, salade, oignon, tomate, œuf, fromage, frites, ketchup, mayonnaise', available: true, image: '🍔' },
@@ -181,7 +181,7 @@ function fmtDate(iso) {
 }
 
 // === LABELS ===
-const STATUS_LABELS = {
+var STATUS_LABELS = {
   pending: 'Nouvelle',
   preparing: 'En préparation',
   ready: 'Prête',
@@ -189,7 +189,7 @@ const STATUS_LABELS = {
   cancelled: 'Annulée'
 };
 
-const STATUS_COLORS = {
+var STATUS_COLORS = {
   pending: 'bg-blue-100 text-blue-700 border-blue-200',
   preparing: 'bg-orange-100 text-orange-700 border-orange-200',
   ready: 'bg-purple-100 text-purple-700 border-purple-200',
@@ -197,21 +197,21 @@ const STATUS_COLORS = {
   cancelled: 'bg-red-100 text-red-700 border-red-200'
 };
 
-const SOURCE_LABELS = {
+var SOURCE_LABELS = {
   web: '🌐 Web',
   phone: '📞 Téléphone',
   walkin: '🏪 Sur place',
   whatsapp: '💬 WhatsApp'
 };
 
-const SOURCE_COLORS = {
+var SOURCE_COLORS = {
   web: 'bg-blue-50 text-blue-700',
   phone: 'bg-amber-50 text-amber-700',
   walkin: 'bg-green-50 text-green-700',
   whatsapp: 'bg-emerald-50 text-emerald-700'
 };
 
-const PAYMENT_LABELS = {
+var PAYMENT_LABELS = {
   wave: 'Wave',
   orange_money: 'Orange Money',
   cash: 'Cash'
